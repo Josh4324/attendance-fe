@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import SignUp from "./pages/SignUp";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import { NotificationContainer } from "react-notifications";
+import "react-notifications/lib/notifications.css";
+import "./App.css";
+import Home from "./pages/Home";
+import Approval from "./pages/Approval";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/signup" element={<SignUp />} />
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/approval" element={<Approval />} />
+      </Routes>
+      <NotificationContainer />
+    </BrowserRouter>
   );
 }
 
