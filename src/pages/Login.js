@@ -29,7 +29,7 @@ export default function Login() {
         attended: "pending",
         time: "12:00",
         location: "office",
-        staff_id: "1",
+        staff_id: staffRef.current.value,
       };
       const res = await axios.post(`${http}/api/v1/user/login`, cred);
       console.log(res.data.data);
